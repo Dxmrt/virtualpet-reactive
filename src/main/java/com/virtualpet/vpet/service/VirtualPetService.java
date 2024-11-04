@@ -1,5 +1,6 @@
 package com.virtualpet.vpet.service;
 
+import com.virtualpet.vpet.excepcions.PetNotFoundException;
 import com.virtualpet.vpet.model.Accessory;
 import com.virtualpet.vpet.model.GameSession;
 import com.virtualpet.vpet.model.Pet;
@@ -59,7 +60,7 @@ public class VirtualPetService {
                 .flatMap(session -> {
                     Pet pet = session.getPet();
                     if (pet == null) {
-                        return Mono.error(new RuntimeException("Pet not found in game session"));
+                        return Mono.error(new PetNotFoundException("Pet not found in game session"));
                     }
                     pet.feed();
                     return gameSessionRepository.save(session);

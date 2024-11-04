@@ -14,4 +14,11 @@ public class GlobalExceptionHandler {
     public Mono<String> handleException(Exception e) {
         return Mono.just("Error: " + e.getMessage());
     }
+
+    @ExceptionHandler(PetNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Mono<String> handlePetNotFoundException(PetNotFoundException e) {
+        return Mono.just("Error: " + e.getMessage());
+    }
+
 }
