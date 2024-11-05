@@ -9,7 +9,7 @@ Welcome to the Virtual Pet Reactive Project! This fully reactive application, bu
     🐱 Pet Management: Create, update, and delete virtual pets with a variety of interaction options.
     🎩 Accessory Management: Personalize your pet with fun accessories.
     📅 Game Sessions: Track each pet’s sessions and health stats over time.
-    📖 API Documentation: Swagger-enabled API docs for easy testing, accessible at http://localhost:8080/swagger-ui.html.
+    📖 API Documentation: Swagger-enabled API docs for easy testing, accessible at http://localhost:8080/webjars/swagger-ui/index.html
 
 ## 📁 Project Structure
 
