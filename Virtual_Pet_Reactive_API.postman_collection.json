@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "2b7af2e1-a34e-472c-9309-7997b1a81d0a",
+		"name": "Virtual Pet API",
+		"description": "Postman collection for Virtual Pet API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37924458"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user123\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/virtualpet/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user123\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/virtualpet/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Game Sessions",
+			"item": [
+				{
+					"name": "Create Game Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/virtualpet/game-sessions?username=user123&petName=pet1&petType=CAT",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"game-sessions"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "user123"
+								},
+								{
+									"key": "petName",
+									"value": "pet1"
+								},
+								{
+									"key": "petType",
+									"value": "CAT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Game Sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/virtualpet/game-sessions/{{username}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"game-sessions",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Feed Pet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/virtualpet/game-sessions/{{sessionId}}/feed",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"game-sessions",
+								"{{sessionId}}",
+								"feed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dance with Pet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/virtualpet/game-sessions/{{sessionId}}/dance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"game-sessions",
+								"{{sessionId}}",
+								"dance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bathe Pet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/virtualpet/game-sessions/{{sessionId}}/bathe",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"game-sessions",
+								"{{sessionId}}",
+								"bathe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pet Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/virtualpet/game-sessions/{{sessionId}}/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"game-sessions",
+								"{{sessionId}}",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accessories",
+			"item": [
+				{
+					"name": "Create Accessory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Hat\",\n    \"type\": \"HAT\",\n    \"color\": \"blue\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/virtualpet/accessories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"accessories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Accessory to Pet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/virtualpet/game-sessions/{{sessionId}}/accessories/{{accessoryName}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"game-sessions",
+								"{{sessionId}}",
+								"accessories",
+								"{{accessoryName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Accessory from Pet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/virtualpet/game-sessions/{{sessionId}}/accessories/{{accessoryName}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"virtualpet",
+								"game-sessions",
+								"{{sessionId}}",
+								"accessories",
+								"{{accessoryName}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "jwt_token",
+			"value": ""
+		},
+		{
+			"key": "username",
+			"value": "user123"
+		},
+		{
+			"key": "sessionId",
+			"value": "sampleSessionId"
+		},
+		{
+			"key": "accessoryName",
+			"value": "Hat"
+		}
+	]
+}
