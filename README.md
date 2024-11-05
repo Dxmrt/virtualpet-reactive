@@ -11,36 +11,56 @@ Welcome to the Virtual Pet Reactive Project! This fully reactive application, bu
     📅 Game Sessions: Track each pet’s sessions and health stats over time.
     📖 API Documentation: Swagger-enabled API docs for easy testing, accessible at http://localhost:8080/webjars/swagger-ui/index.html
 
+---    
+    
 ## 📁 Project Structure
 
-    config: Configurations for security, password encoding, and Swagger API documentation.
-    controller:
-        VirtualPetController: Manages all pet interactions and game session endpoints.
-    model: Core entities representing users, pets, accessories, and game sessions.
-    excepcions: GlobalExceptionHandler provides consistent error handling.
-    repository: Interfaces for R2DBC and MongoDB, enabling data persistence.
+**config:** Contains configurations for application security, password encoding, and Swagger API documentation to ensure smooth integration and security for all endpoints.
+
+**controller:**
+
+    VirtualPetController: Handles all endpoints related to pet interactions and game session management, allowing users to create, interact with, and manage virtual pets.
+    AuthController: Manages authentication processes, including user registration and login, using JWT for secure session handling.
+
+**model:** Defines the core entities, such as User, Pet, Accessory, and GameSession, which represent the main components of the virtual pet system, including pet types and accessory options.
+
+**service:**
+
+    VirtualPetService: Contains the business logic for managing virtual pets, game sessions, and accessories. It connects the controllers to the data layer, handling operations like creating game sessions, executing pet actions (feeding, dancing, bathing), and managing accessory assignments.
+
+**excepcions:** The GlobalExceptionHandler ensures consistent error handling and meaningful responses, improving user experience by managing and logging application errors.
+
+**repository:** Interfaces for both R2DBC and MongoDB databases, enabling non-blocking, reactive data persistence and retrieval for users, pets, accessories, and game sessions.
+
+
+---
+    
 
 ## 🚀 Getting Started
-1️⃣ Clone the Repository
+
+1️⃣ **Clone the Repository**
 
 bash
 
 git clone <repo-url>
 cd virtualpet-reactive-master
 
-2️⃣ Set Up Databases
+2️⃣ **Set Up Databases**
 
     Configure MySQL and MongoDB connection details in application.properties.
 
-3️⃣ Run the Application
+3️⃣ **Run the Application**
 
 bash
 
 ./mvnw spring-boot:run
 
-4️⃣ Explore the API
+4️⃣ **Explore the API**
 
     Open Swagger UI in your browser to explore and test the endpoints.
+
+
+---    
 
 
 ## 📬 Using the API with Postman
@@ -49,15 +69,23 @@ To simplify testing, a pre-configured Postman collection is provided, containing
 How to Use the Postman Collection
 
     Download the Collection: Save the provided Virtual Pet API.postman_collection.json file locally.
+    
     Import into Postman:
+    
         Open Postman and click Import.
         Select the downloaded file. The collection will appear with organized endpoints.
+        
     Set Up Environment Variables:
+    
         Create a new environment in Postman with:
-            base_url: The base URL of your API, e.g., http://localhost:8080.
-            jwt_token: Store the JWT token from login to authenticate requests.
+        
+            - base_url: The base URL of your API, e.g., http://localhost:8080.
+            - jwt_token: Store the JWT token from login to authenticate requests.
 
 After logging in, copy the JWT token from the login response and paste it into jwt_token to access protected endpoints.
+
+---
+
 
 ## 📄 Database Setup
 
@@ -82,10 +110,15 @@ CREATE TABLE IF NOT EXISTS users (
 );
 ```
 
+---
+
+
 ## 🌱 Future Enhancements
 
     🎨 Frontend Development: Planned integration with a React or Vue interface for a more engaging UI.
     ⚠️ Enhanced Exception Handling: Additional custom exceptions for clearer feedback.
+
+---
 
 ## 🌐 URL for Frontend Access
 
